@@ -1,0 +1,41 @@
+body
+{
+    background-color: #bbbbbb;
+}
+
+h1{
+  color: white;
+}
+.bs-docs-header{
+padding-top: 20px;
+padding-bottom: 20px;
+font-size: 35px;
+text-align: left;
+text-shadow: 0 1px 0 rgba(0,0,0,.1);
+color: #cdbfe3;
+background-color: #444444;
+margin-bottom: 20px;
+}
+
+.bs-docs-footer {
+
+    margin-top: 300px;
+    background-color:  #444444;
+    height: 20%;
+}
+
+#login {
+    background-color: white;
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px white solid;
+}
+
+#h2 {
+    text-align: center;
+}
+
+#p1 {
+    margin-left: 14px;
+}

@@ -1,0 +1,46 @@
+body
+{
+    background-color: yellow;
+}
+
+h1{
+  color: white;
+}
+.bs-docs-header{
+padding-top: 20px;
+padding-bottom: 20px;
+font-size: 35px;
+text-align: left;
+text-shadow: 0 1px 0 rgba(0,0,0,.1);
+color: #cdbfe3;
+background-color: #6f5499;
+margin-bottom: 20px;
+}
+
+.bs-docs-footer {
+margin-top: 20px;
+padding-top: 120px;
+    background-color: #6f5499;
+    height: 20%;
+}
+
+#survey_form {
+    background-color: white;
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px black solid;
+}
+
+#row-2 {
+    margin-top: 20px;
+}
+
+.huge {
+    font-size:150%;
+}
+.col-md-12 {
+    border-bottom: 1px solid lightgrey;
+    margin-bottom:0.5em;
+    margin-top:0.5em;
+}
