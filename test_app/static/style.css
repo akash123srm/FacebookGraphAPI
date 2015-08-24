@@ -24,7 +24,7 @@ margin-bottom: 20px;
     height: 20%;
 }
 
-#login {
+#login,#user {
     background-color: white;
     width: 50%;
     padding-top: 10px;
@@ -38,4 +38,8 @@ margin-bottom: 20px;
 
 #p1 {
     margin-left: 14px;
+}
+
+#user {
+    margin-left: 110px;
 }

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<body>
+{% block content %}
+    <head lang="en">
+        {% load i18n  static %}
+        <meta charset="UTF-8">
+        <!--<link rel="stylesheet" type="text/css" href="/static/css/tooltipster.css" />-->
+    </head>
+    <div id="login" class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 id="h2">Click on the authorize button </h2>
+                <a href="{{ url }}"
+                   class="btn btn-primary btn-sm">Authorize</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

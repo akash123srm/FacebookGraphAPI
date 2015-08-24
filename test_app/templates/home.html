@@ -7,14 +7,32 @@
 </head>
 <body>
 {% block content %}
-<ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="{% url 'test_app:home_view' %}" class="btn btn-primary btn-sm">Home</a></li>
-  <li role="presentation"><a href="{% url 'auth:logout' %}?next={% url 'test_app:login_view' %}" class="btn btn-primary btn-sm">Logout</a></li>
-  <li role="presentation"><a href="#">Messages</a></li>
-</ul>
-    {% if user.is_authenticated  and not user.is_superuser %}
-     <h2>Welcome {{ user.first_name }} {{ user.last_name }} !!</h2>
-    {% endif %}
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="{% url 'test_app:home_view' %}" class="btn btn-primary btn-sm">Home</a>
+        </li>
+        <li role="presentation"><a href="{% url 'auth:logout' %}?next={% url 'test_app:authorize_view' %}"
+                                   class="btn btn-primary btn-sm">Logout</a></li>
+        <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+
+
+        <div id="user" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                 <div class="col-md-4">
+
+                     <img src="{{ url_profile_picture }}"/>
+             </div>
+                <div class="col-md-8">
+                     <h3 id="user" > Welcome {{ user_name }} !!</h3>
+                </div>
+            </div>
+        </div>
+       </div>
+
+
+
+
 {% endblock %}
 </body>
 </html>

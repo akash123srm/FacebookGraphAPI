@@ -12,17 +12,13 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
-
-TEMPLATE_CONTEXT_PROCESSORS = TCP + (
-    'social.apps.django_app.context_processors.backends',
-    'social.apps.django_app.context_processors.login_redirect',
-    'django.core.context_processors.request',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.contrib.messages.context_processors.messages',
-    #'django.contrib.auth.context_processors.auth',
-    )
+import facebook
+import urllib2
+from urllib2 import Request
+from urlparse import urlparse
+import cgi
+import requests
+import urllib
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -47,7 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
+    #'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
@@ -72,6 +68,8 @@ AUTHENTICATION_BACKENDS = (
 SOCIAL_AUTH_FACEBOOK_KEY = '419204078262692'
 SOCIAL_AUTH_FACEBOOK_SECRET = '9ea3efc5a42d272a5844a5f4dcafcee6'
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'publish_actions']
+REDIRECT_URI = 'http://localhost:8000/test/login/'
+
 
 LOGIN_URL = '/test'
 LOGIN_REDIRECT_URL = '/test/home/'
@@ -103,6 +101,8 @@ TEMPLATES = [
                 'django.core.context_processors.media',
                 'django.core.context_processors.static',
                 'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
 
 
             ],
@@ -180,3 +180,7 @@ SITE_URL = '127.0.0.1:8000/'
 
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+
+

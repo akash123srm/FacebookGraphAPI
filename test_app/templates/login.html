@@ -2,23 +2,25 @@
 <!DOCTYPE html>
 <body>
 {% block content %}
-     <head lang="en">
-    {% load i18n  static %}
-    <meta charset="UTF-8">
-   <!--<link rel="stylesheet" type="text/css" href="/static/css/tooltipster.css" />-->
-     </head>
-    <div id= "login" class="container">
-    <div class="row">
-    <div class="col-md-8">
-        <h2 id="h2">Use Your Existing Accounts</h2>
-        <a href="{% url 'social:begin' 'facebook' %}?next={% url 'test_app:home_view' %}" class="btn btn-primary btn-sm">Login with Facebook</a>
+    <head lang="en">
+        {% load i18n  static %}
+        <meta charset="UTF-8">
+        <!--<link rel="stylesheet" type="text/css" href="/static/css/tooltipster.css" />-->
+    </head>
+    <div id="login" class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 id="h2">Use Your Existing Accounts</h2>
+                <a href="{% url 'social:begin' 'facebook' %}?next={% url 'test_app:home_view' %}"
+                   class="btn btn-primary btn-sm">Login with Facebook</a>
 
-        <div class="col-sm-8">
-            <p id ="p1">If you have an active account on Facebook you can use it to sign up and log in later without a seperate account.</p>
+                <div class="col-sm-8">
+                    <p id="p1">If you have an active account on Facebook you can use it to sign up and log in later
+                        without a seperate account.</p>
 
-    </div>
-    </div>
-     </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
 </body>
