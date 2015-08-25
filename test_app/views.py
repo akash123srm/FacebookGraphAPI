@@ -4,6 +4,9 @@ from django.views.generic.base import TemplateView
 from django.conf import settings
 from .models import UserProfile
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
+from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.models import User
 import facebook
 import json
 import urllib
@@ -60,16 +63,22 @@ class HomeView(TemplateView):
         graph = facebook.GraphAPI(access_token=EXTENDED_TOKEN)
         profile = graph.get_object(id='me')
         url_profile_picture = 'http://graph.facebook.com/{0}/picture?type=large'.format(profile['id'])
-        e, created = UserProfile.objects.get_or_create(name=profile['name'], id=profile['id'],
-                                                       access_token=EXTENDED_TOKEN)
-        e.save()
+        print profile['name'].replace(" ", "")
+        try:
+            user = User.objects.get(username=profile['name'].replace(" ",""))
+            print user
+            e, created = UserProfile.objects.get_or_create(name=user, id=profile['id'],
+                                                          access_token=EXTENDED_TOKEN)
+            e.save()
+        except ObjectDoesNotExist:
+            return None
 
         return {
             'user_name': profile['name'],
             'url_profile_picture': url_profile_picture,
 
              }
-       
+
 
 
 

@@ -83,7 +83,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-)
+    #'test_project.middlewares.MySocialAuthExceptionMiddleware'
+    )
 
 ROOT_URLCONF = 'test_project.urls'
 
@@ -137,6 +138,20 @@ DATABASES = {
     }
 }
 
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+
+    # Path to your overrided method
+    # You can set any other valid path.
+
+    'social.pipeline.user.get_username',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
